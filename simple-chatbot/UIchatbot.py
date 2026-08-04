@@ -3,12 +3,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from langchain_mistralai import ChatMistralAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import AIMessage, SystemMessage, HumanMessage
 
 
 # ---------------- MODEL ----------------
-model = ChatMistralAI(model="mistral-small-2506", temperature=0.9)
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.9)
 
 
 # ---------------- PAGE ----------------
