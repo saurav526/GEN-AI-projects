@@ -1,0 +1,44 @@
+# IMPORTANT — READ FIRST
+# --------------------------------------------------------------------------
+# This project's own Pipfile pins `python_version = "3.12"`, and that's
+# intentional: several packages below (torch, faiss-cpu, scipy, tokenizers,
+# pyarrow) ship precompiled binary wheels only for actively-supported CPython
+# versions. Python 3.14 is brand new, and as of now these packages do not
+# reliably publish cp314 wheels, so pip falls back to building from source
+# (or fails outright) even once version markers are fixed.
+#
+# RECOMMENDED FIX: use Python 3.11 or 3.12 for this project, e.g.:
+#   pyenv install 3.12.7
+#   pyenv local 3.12.7
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+# --------------------------------------------------------------------------
+
+python-dotenv>=1.0.1
+streamlit>=1.46.1
+
+langchain>=0.3.26
+langchain-community>=0.3.27
+langchain-core>=0.3.68
+langchain-groq>=0.3.5
+langchain-huggingface>=0.3.0
+langchain-text-splitters>=0.3.8
+
+faiss-cpu>=1.11.0
+pypdf>=5.7.0
+sentence-transformers>=5.0.0
+
+# The buggy pin this replaces was:
+#   numpy==2.3.1; python_version < '3.13'
+# That marker silently SKIPPED numpy on Python 3.13+, breaking every package
+# that depends on it (pandas, scipy, faiss-cpu, sentence-transformers).
+numpy>=1.26,<3.0
+
+pandas>=2.3.1
+scipy>=1.16.0
+torch>=2.7.1
+transformers>=4.53.1
+tokenizers>=0.21.2
+
+groq>=0.29.0
+huggingface-hub>=0.33.2

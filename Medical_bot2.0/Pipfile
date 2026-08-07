@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+langchain = "*"
+langchain-community = "*"
+langchain-huggingface = "*"
+langchain-groq = "*"
+faiss-cpu = "*"
+pypdf = "*"
+streamlit = "*"
+sentence-transformers = "*"
+python-dotenv = "*"
+
+[dev-packages]
+
+[requires]
+# Kept at 3.12: torch / faiss-cpu / scipy / tokenizers do not yet ship
+# stable wheels for 3.14. See requirements.txt for details.
+python_version = "3.12"
