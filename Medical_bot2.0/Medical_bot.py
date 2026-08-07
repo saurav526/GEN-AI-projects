@@ -41,12 +41,13 @@ def set_custom_prompt(custom_prompt_template):
 
 
 @st.cache_resource(show_spinner=False)
+
 def get_llm():
-    api_key = require_groq_api_key()
+    require_groq_api_key()  # Fail fast if the key is missing
     return ChatGroq(
         model_name=GROQ_MODEL_NAME,
         temperature=LLM_TEMPERATURE,
-        groq_api_key=api_key,
+        api_key=require_groq_api_key(),
     )
 
 
