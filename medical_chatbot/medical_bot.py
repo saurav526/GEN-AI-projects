@@ -10,7 +10,6 @@ from langchain_huggingface import HuggingFaceEndpoint
 
 
 
-## Uncomment the following files if you're not using pipenv as your virtual environment manager
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 
